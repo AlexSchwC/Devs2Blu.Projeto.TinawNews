@@ -1,4 +1,6 @@
+using Devs2Blu.Projeto.TinawNews.Application.Services.SQLServerServices;
 using Devs2Blu.Projeto.TinawNews.Domain.IRepositories;
+using Devs2Blu.Projeto.TinawNews.Domain.IServices;
 using Devs2Blu.Projeto.TinawNews.Infra.Data.Context;
 using Devs2Blu.Projeto.TinawNews.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -11,12 +13,14 @@ builder.Services.AddControllersWithViews();
 
 // Context SQLServer
 builder.Services.AddDbContext<SQLServerContext>
-    (options => options.UseSqlServer("Server=DESKTOP-STUVV70\\SQLEXPRESS;Database=TinawNews;User Id=sa;Password=admin;Encrypt=False;"));
+    (options => options.UseSqlServer("Server=DESKTOP-J7S4R36\\SQLEXPRESS;Database=TinawNews;User Id=sa;Password=admin;Encrypt=False;"));
 
 // ## Dependency Injection
 // # Repositories
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<INewsRepository, NewsRepository>();
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
