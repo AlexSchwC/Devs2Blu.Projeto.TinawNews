@@ -13,7 +13,10 @@ builder.Services.AddControllersWithViews();
 
 // Context SQLServer
 builder.Services.AddDbContext<SQLServerContext>
-    (options => options.UseSqlServer("Server=DESKTOP-J7S4R36\\SQLEXPRESS;Database=TinawNews;User Id=sa;Password=admin;Encrypt=False;"));
+    // Notebook
+    (options => options.UseSqlServer("Server=DESKTOP-STUVV70\\SQLEXPRESS;Database=TinawNews;User Id=sa;Password=admin;Encrypt=False;"));
+    // PC - Casa
+    //(options => options.UseSqlServer("Server=DESKTOP-J7S4R36\\SQLEXPRESS;Database=TinawNews;User Id=sa;Password=admin;Encrypt=False;"));
 
 // ## Dependency Injection
 // # Repositories
@@ -21,6 +24,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<INewsRepository, NewsRepository>();
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<INewsService, NewsService>();
 
 var app = builder.Build();
 
